@@ -1,0 +1,10 @@
+**/target/
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/state/
+
+.DS_Store
+/snapshot.json
+/report.json
