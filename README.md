@@ -1,13 +1,25 @@
 # Binary market data
 
-A standalone Rust library and JSONL probe for normalized, read-only order books
-from binary prediction markets. The crate has no strategy, wallet, credential,
+A standalone Rust library and [Python package](python/) with JSONL probes for
+normalized, read-only order books from binary prediction markets. Both implementations
+have no strategy, wallet, credential,
 order submission, cancellation, or execution surface.
 
 This is unofficial community software and is not affiliated with, endorsed by,
 or sponsored by Polymarket or Kalshi. Their APIs may change without notice;
 consumers are responsible for monitoring connection state, schema failures, and
 data freshness.
+
+## Choose an implementation
+
+- **Rust:** the crate and probe at the repository root; instructions below.
+- **Python 3.11+:** install with `python -m pip install ./python` and follow the
+  [Python README](python/README.md). No Rust compiler is required.
+
+The implementations share venue conventions and JSON field names. Offline replay
+fixtures compare their parsers and books. Python-specific validation, decimal
+limits and reconnect behavior are documented in its README. Neither package is
+currently published to a package registry.
 
 ## Venue support
 
@@ -40,7 +52,8 @@ The normalized book is YES-centric:
 - Kalshi YES bids remain bids.
 - A Kalshi NO bid at price `p` becomes a YES ask at `1 - p`.
 - Polymarket levels remain on the subscribed outcome-token price scale.
-- `rust_decimal` is used throughout; no binary floating-point values are used.
+- Rust uses `rust_decimal`; Python uses `decimal.Decimal`. Prices and quantities
+  never pass through binary floating point.
 - A snapshot must be received before a delta can be applied.
 - Kalshi sequence gaps fail closed without mutating the current book.
 

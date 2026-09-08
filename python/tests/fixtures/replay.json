@@ -1,0 +1,17 @@
+[
+  {"parser":"polymarket","payload":{"event_type":"book","asset_id":"example-token","market":"example-condition","timestamp":"1000","bids":[{"price":"0.48","size":"3.25"},{"price":"0.480","size":"2.75"},{"price":"0.46","size":"4"}],"asks":[{"price":"0.52","size":"7"},{"price":"0.54","size":"0"}]}},
+  {"parser":"polymarket","payload":{"event_type":"price_change","market":"example-condition","timestamp":"1001","price_changes":[{"asset_id":"example-token","side":"BUY","price":"0.48","size":"12"},{"asset_id":"example-token","side":"SELL","price":"0.52","size":"0"},{"asset_id":"example-token","side":"SELL","price":"0.49","size":"8"}]}},
+  {"parser":"polymarket","payload":{"event_type":"price_change","price_changes":[{"asset_id":"missing-example","side":"BUY","price":"0.50","size":"2"}]}},
+  {"parser":"polymarket","payload":{"event_type":"price_change","price_changes":[{"asset_id":"example-token","side":"BUY","price":"1.01","size":"2"}]}},
+  {"parser":"polymarket","payload":{"event_type":"tick_size_change"}},
+  {"parser":"polymarket","payload":{"event_type":"book","asset_id":"malformed-example","asks":[]}},
+  {"parser":"kalshi_rest","instrument_id":"example-token","payload":{"orderbook_fp":{"yes_dollars":[["0.4200","13.00"]],"no_dollars":[["0.5600","17.00"]]}}},
+  {"parser":"kalshi_ws","payload":{"type":"orderbook_snapshot","seq":2,"msg":{"market_ticker":"EXAMPLE","market_id":"example-id","yes_dollars_fp":[["0.42","13"]],"no_dollars_fp":[["0.44","17"]]}}},
+  {"parser":"kalshi_ws","payload":{"type":"orderbook_delta","seq":4,"msg":{"market_ticker":"EXAMPLE","price_dollars":"0.44","delta_fp":"2","outcome_side":"no","ts_ms":2000}}},
+  {"parser":"kalshi_ws","payload":{"type":"orderbook_delta","seq":3,"msg":{"market_ticker":"EXAMPLE","price_dollars":"0.44","delta_fp":"-2","outcome_side":"no","ts_ms":2001}}},
+  {"parser":"kalshi_ws","payload":{"type":"orderbook_delta","seq":3,"msg":{"market_ticker":"EXAMPLE","price_dollars":"0.44","delta_fp":"100","outcome_side":"no"}}},
+  {"parser":"kalshi_ws","payload":{"type":"orderbook_delta","seq":4,"msg":{"market_ticker":"EXAMPLE","price_dollars":"0.44","delta_fp":"-100","outcome_side":"no"}}},
+  {"parser":"kalshi_ws","payload":{"type":"orderbook_delta","seq":4,"msg":{"market_ticker":"EXAMPLE","price_dollars":"0.44","delta_fp":"-15","side":"no"}}},
+  {"parser":"kalshi_ws","payload":{"type":"orderbook_delta","seq":5,"msg":{"market_ticker":"EXAMPLE","price_dollars":"0.42","delta_fp":"-13","side":"yes"}}},
+  {"parser":"polymarket","payload":[{"event_type":"book","asset_id":"empty-example","bids":[],"asks":[]},{"event_type":"book","asset_id":"crossed-example","bids":[{"price":"0.60","size":"1"}],"asks":[{"price":"0.40","size":"1"}]}]}
+]

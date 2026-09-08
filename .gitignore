@@ -8,3 +8,15 @@
 .DS_Store
 /snapshot.json
 /report.json
+
+# Python environments, caches and build output.
+**/.venv/
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+**/.ruff_cache/
+**/*.egg-info/
+/python/build/
+/python/dist/
+/python/.coverage
+/python/htmlcov/

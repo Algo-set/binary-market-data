@@ -12,3 +12,19 @@ versions are warnings because network stacks can temporarily require them.
 Automated checks use `cargo deny` for advisories, licenses, and sources. The
 license allowlist is intentionally explicit in `deny.toml`; additions require
 review rather than silently broadening policy.
+
+## Python implementation
+
+Python has two runtime dependencies: `httpx` for public HTTP GET requests and
+`websockets` for public subscriptions and heartbeats. Book arithmetic, parsing,
+records and the CLI use the standard library. No venue SDK is needed.
+
+`python/requirements-dev.txt` pins runtime, test, lint and build dependencies for
+CI. `python/pyproject.toml` declares compatible runtime ranges for library users.
+Review both files together when changing dependencies, including Python 3.11
+compatibility and transitive licenses. HTTPX's CA bundle dependency, `certifi`,
+uses MPL-2.0; retain its notices when redistributing dependencies. Other runtime
+dependencies use MIT, BSD-3-Clause or PSF-2.0 licenses. Built wheels do not vendor them.
+
+Dependabot checks the Python directory weekly. Python CI tests both pinned and
+minimum supported transport versions and builds the distributable package.
