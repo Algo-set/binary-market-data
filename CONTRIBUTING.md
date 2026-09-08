@@ -18,6 +18,13 @@ Network integration tests or probes must remain opt-in and must not require
 private credentials. Unit tests should use synthetic identifiers and arbitrary
 values rather than real accounts, endpoints, or captured production payloads.
 
+For Python, use the isolated installation and commands in
+[`python/README.md`](python/README.md). Its default tests use synthetic data,
+mock HTTP and temporary loopback WebSocket servers; live venue probes are opt-in.
+Keep Rust and Python JSON conventions aligned and extend the shared offline
+replay fixture when changing parsing or book behavior. Explain deliberate
+differences in the Python README.
+
 ## Pull requests
 
 - Keep changes focused and document user-visible behavior.
