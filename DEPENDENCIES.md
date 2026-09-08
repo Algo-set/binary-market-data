@@ -15,7 +15,7 @@ review rather than silently broadening policy.
 
 ## Python implementation
 
-Python has two runtime dependencies: `httpx` for public HTTP GET requests and
+Python has two runtime dependencies: `httpx` for public HTTP GET requests and read-only JSON-RPC POSTs and
 `websockets` for public subscriptions and heartbeats. Book arithmetic, parsing,
 records and the CLI use the standard library. No venue SDK is needed.
 
@@ -28,3 +28,9 @@ dependencies use MIT, BSD-3-Clause or PSF-2.0 licenses. Built wheels do not vend
 
 Dependabot checks the Python directory weekly. Python CI tests both pinned and
 minimum supported transport versions and builds the distributable package.
+
+The Rust five-minute adapters use `chrono` (without clock/timezone database
+features) to parse explicit UTC contract windows and `num-bigint` to preserve
+256-bit public pool amounts and signed oracle integers. Both use compatible
+MIT/Apache-2.0 licensing. `serde_json` arbitrary precision prevents numeric
+Limitless prices from passing through binary floating point.

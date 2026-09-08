@@ -6,7 +6,7 @@ have no strategy, wallet, credential,
 order submission, cancellation, or execution surface.
 
 This is unofficial community software and is not affiliated with, endorsed by,
-or sponsored by Polymarket or Kalshi. Their APIs may change without notice;
+or sponsored by any supported venue. Their APIs may change without notice;
 consumers are responsible for monitoring connection state, schema failures, and
 data freshness.
 
@@ -20,6 +20,15 @@ The implementations share venue conventions and JSON field names. Offline replay
 fixtures compare their parsers and books. Python-specific validation, decimal
 limits and reconnect behavior are documented in its README. Neither package is
 currently published to a package registry.
+
+## Rolling five-minute feeds
+
+The new Rust and Python `five-minute-probe` discovers current contracts and
+populates public REST books for Polymarket, Limitless and qualifying Kalshi
+markets. PancakeSwap emits aggregate prediction pools; Crypto.com reports an
+explicit unsupported Strike Options transport. See [setup, examples and venue
+limitations](FIVE_MINUTE_FEEDS.md). No private information or credentials are
+needed. Existing explicit-market commands below remain supported.
 
 ## Venue support
 

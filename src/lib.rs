@@ -5,6 +5,8 @@
 pub mod book;
 pub mod connectors;
 pub mod discovery;
+pub mod five_minute;
+pub mod prediction_pool;
 pub mod types;
 pub mod venue;
 

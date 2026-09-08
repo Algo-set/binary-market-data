@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "binary-market-data"
-version = "0.1.0"
-description = "Read-only Polymarket and Kalshi discovery and normalized order books"
+version = "0.2.0"
+description = "Read-only binary-market books and five-minute prediction feeds"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
@@ -29,6 +29,7 @@ Issues = "https://github.com/Algo-set/binary-market-data/issues"
 
 [project.scripts]
 market-data-probe = "binary_market_data.cli:main"
+five-minute-probe = "binary_market_data.five_minute_cli:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=8,<10", "pytest-asyncio>=1,<2", "build>=1,<2", "ruff>=0.12,<1"]

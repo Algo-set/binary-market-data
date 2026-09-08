@@ -1,10 +1,11 @@
 # binary-market-data · Python
 
 A standalone Python implementation of this repository's Rust market-data component.
-It discovers public Polymarket and Kalshi markets and maintains normalized order books.
+It discovers public binary markets and maintains normalized order books, with
+rolling five-minute feeds and separate aggregate prediction pools.
 It does not depend on Rust, the Algo Set platform, trading models, or account credentials.
 
-This is unofficial community software, unaffiliated with Polymarket or Kalshi.
+This is unofficial community software, unaffiliated with any supported venue.
 Venue APIs can change. Consumers must monitor connection state and data freshness.
 
 ## Install
@@ -144,3 +145,23 @@ package metadata keeps compatible dependency ranges for library consumers.
 
 See the repository's [security policy](../SECURITY.md),
 [dependency policy](../DEPENDENCIES.md) and [MIT license](LICENSE).
+
+## Rolling five-minute markets
+
+Version 0.2.0 adds `five-minute-probe` for public five-minute discovery and
+order-book snapshots. For example:
+
+```sh
+five-minute-probe polymarket --asset BTC --max-updates 2
+five-minute-probe limitless --asset BTC --once
+five-minute-probe kalshi --asset BTC --once
+five-minute-probe pancakeswap --asset BNB --once
+five-minute-probe crypto_com --once
+```
+
+PancakeSwap outputs aggregate pool rounds, not bids and asks. Crypto.com
+reports an unsupported transport; no spot feed is substituted for Strike
+Options. No active five-minute Kalshi market is assumed. The default probe
+exits after 30 seconds; `--once` performs one sweep. See the repository's
+[five-minute feed guide](../FIVE_MINUTE_FEEDS.md) for lifecycle, freshness,
+public-only scope, library usage and documented limitations.

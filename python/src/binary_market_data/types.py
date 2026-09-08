@@ -15,6 +15,9 @@ from ._decimal import decimal_value
 class Venue(StrEnum):
     POLYMARKET = "polymarket"
     KALSHI = "kalshi"
+    LIMITLESS = "limitless"
+    CRYPTO_COM = "crypto_com"
+    PANCAKESWAP = "pancakeswap"
 
 
 class BookSide(StrEnum):

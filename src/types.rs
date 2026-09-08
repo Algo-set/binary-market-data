@@ -7,6 +7,9 @@ use std::time::{SystemTime, UNIX_EPOCH};
 pub enum Venue {
     Polymarket,
     Kalshi,
+    Limitless,
+    CryptoCom,
+    Pancakeswap,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
