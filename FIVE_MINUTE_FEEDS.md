@@ -147,7 +147,7 @@ connectivity evidence, not a guarantee of continuing venue availability.
 ## Official references
 
 - [Polymarket market discovery](https://docs.polymarket.com/api-reference/markets/list-markets)
-- [Polymarket order-book summary](https://docs.polymarket.com/api-reference/orderbook/get-order-book-summary)
+- [Polymarket order-book summary](https://docs.polymarket.com/api-reference/market-data/get-order-book)
 - [Limitless active catalog](https://docs.limitless.exchange/api-reference/markets/browse-active)
 - [Limitless YES-side order book](https://docs.limitless.exchange/api-reference/trading/orderbook)
 - [Kalshi public market data](https://docs.kalshi.com/getting_started/quick_start_market_data)
